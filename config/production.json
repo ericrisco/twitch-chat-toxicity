@@ -1,0 +1,6 @@
+{
+    "appName": "TwitchChatToxicity API [PROD]",
+    "server": {
+      "port": 4000
+    }
+  }

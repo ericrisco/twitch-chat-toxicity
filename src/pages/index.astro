@@ -1,0 +1,10 @@
+---
+import Chatbox from '@components/Chatbox.jsx';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<Chatbox client:only="react"></Chatbox>
+	</main>
+</Layout>
