@@ -1,4 +1,3 @@
-
 export const getMessagesFromTwitchUser = async (username) => {
 	try {
 		// eslint-disable-next-line no-undef
