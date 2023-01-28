@@ -1,6 +1,6 @@
 {
-    "appName": "TwitchChatToxicity API [LOCAL]",
-    "server": {
-      "port": 4000
-    }
-  }
+	"appName": "TwitchChatToxicity API [LOCAL]",
+	"server": {
+		"port": 4000
+	}
+}
