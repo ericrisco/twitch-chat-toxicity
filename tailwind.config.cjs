@@ -2,7 +2,18 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+            fontFamily: {
+                twitch: [
+                    'Inter',
+                    'Roobert',
+                    'Helvetica Neue',
+                    'Helvetica',
+                    'Arial',
+                    'sans-serif'
+                ]
+            }
+		}
 	},
-	plugins: [],
-}
+	plugins: []
+};
