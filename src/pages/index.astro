@@ -1,10 +1,20 @@
 ---
 import Chatbox from '@components/Chatbox.jsx';
+import Form from '@components/Form.jsx';
 import Layout from '@layouts/Layout.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Twitch Toxic Tracker">
 	<main>
-		<Chatbox client:only="react"></Chatbox>
+		<div class="grid grid-cols-12">
+			<div class="col-span-12 md:col-span-6 lg:col-start-3 lg:col-end-6">
+				<Form client:only="react" />
+			</div>
+			<div
+				class="min-h-screen pl-5 pr-5 pt-20 pb-20 col-span-12 sm:col-span-12 md:col-span-6 lg:col-start-6 lg:col-end-10"
+			>
+				<Chatbox client:only="react" />
+			</div>
+		</div>
 	</main>
 </Layout>
