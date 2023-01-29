@@ -1,38 +1,39 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import Tmi from 'react-tmi';
 
+const WINDOW_SIZE = 30;
 
-export default function useChatMessages() {
-    const [messages, setMessages] = useState([]);
+const startMessage = {
+	message: 'Welcome to the chat!',
+	userName: 'TwitchToxicTracker'
+};
 
-	const client = new Tmi.Client({
-		channels: ['elspreen']
-	});
-	client.connect();
+export default function chatMessages({ userName }) {
+	const [messages, setMessages] = useState([startMessage]);
 
-    const socket = useChatConnection()
+	const client = useRef(
+		new Tmi.Client({
+			channels: [userName]
+		})
+	);
 
-    const appendNewMessage = useCallback(
-        (newMessage) => {
-            const nextMessages = [
-                ...messages.slice(-MESSAGE_WINDOW),
-                newMessage,
-            ]
-            setMessages(nextMessages)
-        },
-        [messages]
-    )
+	const addMessage = useCallback((message) => {
+		const newMessages = [
+			...messages.slice(-WINDOW_SIZE),
+			message
+		];
+		setMessages(newMessages);
+	}, [messages]);
 
-    useEffect(() => {
-        socket?.on('new-message', (msg) => {
-            appendNewMessage(msg)
-        })
-
-        return () => {
-            socket?.off('new-message')
-        }
-    }, [appendNewMessage, socket])
-
-    return {
-        messages
-    }
+	useEffect(() => {
+		client.current.connect();
+		client.current.on('message', (channel, tags, message, self) => {
+			console.log(messages);
+			const newMessage = { message, userName: tags['display-name'] };
+			if (messages.find(msg => msg.message === newMessage.message) === undefined) {
+				addMessage(newMessage);
+			}
+		});
+	}, [addMessage, client]);
+	return messages;
 }

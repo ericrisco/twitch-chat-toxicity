@@ -1,4 +1,4 @@
-export default function ChatBubble({ username, message, className }) {
+export default function ChatBubble({ userName, message, className }) {
     const Username = (
         <span className="font-semibold">
             {username}
@@ -6,9 +6,7 @@ export default function ChatBubble({ username, message, className }) {
     );
 
 	return (
-        <div
-            className={`text-[15px] py-1 px-2 rounded hover:bg-gray-500/30 leading-6 ${className}`}
-        >
+        <div className={`text-[14px] py-1 px-2 rounded hover:bg-gray-500/30 leading-6 ${className}`}>
             <div className="inline-flex items-baseline">
                 {Username}
             </div>

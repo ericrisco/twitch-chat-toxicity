@@ -1,21 +1,10 @@
-import { useEffect, useState } from 'react';
-import ChatBubble from '@components/ChatBubble';
-import Tmi from 'react-tmi';
+// eslint-disable-next-line no-unused-vars
+import ChatBubble from './ChatBubble';
+import chatMessages from '../services/chatMessages';
 
-export default function Chatbox({ username }) {
-	//const { messages } = useChatMessages();
-
-	const client = new Tmi.Client({
-		channels: ['elspreen']
-	});
-	client.connect();
-	client.on('message', (channel, tags, message, self) => {
-		useEffect(() => {
-				messages.push({ username: tags['display-name'], message });
-				console.log(`${tags['display-name']}: ${message}`);
-		}, []);
-	});
-
+export default function Chatbox({ userName }) {
+	const { messages } = chatMessages({ userName });
+	console.log(messages);
 	return (
 		<>
 			<div className="w-full h-full bg-white">
@@ -35,8 +24,11 @@ export default function Chatbox({ username }) {
 				<div id="chat" className="h- w-full overflow-y-auto p-2 relative">
 					<ul>
 						<li className="clearfix2">
-							<ChatBubble />
-							<ChatBubble />
+							{
+								messages && messages.map((message, index) => (
+									<ChatBubble key={index} username={message.username} message={message.message} ></ChatBubble>
+								))
+							}
 						</li>
 					</ul>
 				</div>
@@ -44,3 +36,7 @@ export default function Chatbox({ username }) {
 		</>
 	);
 }
+
+/*
+
+							*/
