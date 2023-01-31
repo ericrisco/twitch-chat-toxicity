@@ -23,6 +23,7 @@ async function getUserInfo(userName) {
 	const userInfo = dataInfo.data.filter(
 		(user) => user.broadcaster_login.toLowerCase() === userName.toLowerCase()
 	)[0];
+	return userInfo;
 }
 
 module.exports = {
