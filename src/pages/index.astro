@@ -1,5 +1,5 @@
 ---
-import Chatbox from '@components/Chatbox.jsx';
+import Chat from '@components/Chat.jsx';
 import Form from '@components/Form.jsx';
 import Layout from '@layouts/Layout.astro';
 ---
@@ -10,8 +10,10 @@ import Layout from '@layouts/Layout.astro';
 			<div class="col-span-12 md:col-span-6 lg:col-start-3 lg:col-end-6">
 				<Form client:only="react" />
 			</div>
-			<div class="min-h-screen pl-5 pr-5 pt-20 pb-20 col-span-12 sm:col-span-12 md:col-span-6 lg:col-start-6 lg:col-end-10">
-				<Chatbox userName="polispol1" client:only="react" />
+			<div
+				class="min-h-screen pl-5 pr-5 pt-20 pb-20 col-span-12 sm:col-span-12 md:col-span-6 lg:col-start-6 lg:col-end-10"
+			>
+				<Chat userName="polispol1" client:only="react" />
 			</div>
 		</div>
 	</main>
