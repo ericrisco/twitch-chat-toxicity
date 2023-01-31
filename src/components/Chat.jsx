@@ -14,26 +14,19 @@ export default function Chatbox({ userName }) {
 		scrollable.current.lastElementChild.scrollIntoView();
 	}
 
-	if (userInfo == null) {
+	if (chatConnected) {
 		return (
 			<div className="w-full h-full bg-white">
-				<Loading></Loading>
+				<ChatHeader userName={userName}></ChatHeader>
+				<ChatMessages messages={messages}></ChatMessages>
 			</div>
 		);
 	} else {
-		if (chatConnected) {
-			return (
-				<div className="w-full h-full bg-white">
-					<ChatHeader></ChatHeader>
-					<ChatMessages messages={messages}></ChatMessages>
-				</div>
-			);
-		} else {
-			return (
-				<div className="w-full h-full bg-white">
-					<Loading></Loading>
-				</div>
-			);
-		}
+		return (
+			<div className="w-full h-full bg-white">
+				<ChatHeader userName={userName}></ChatHeader>
+				<Loading></Loading>
+			</div>
+		);
 	}
 }

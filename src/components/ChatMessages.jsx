@@ -17,8 +17,7 @@ export default function ChatMessages({ messages }) {
 							key={index}
 							userName={message.userName}
 							message={message.message}
-							color={message.color}
-						></ChatMessage>
+							color={message.color}></ChatMessage>
 					))}
 			</ul>
 		</div>
