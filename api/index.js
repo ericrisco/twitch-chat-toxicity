@@ -5,13 +5,9 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
 const config = require('config');
-const cohere = require('cohere-ai');
-require('dotenv').config();
 
-const dataset = require('./dataset/toxic_dataset.json');
-const messages = dataset.map((message) => {
-	return { text: message.text, label: message['Is this text toxic?'] };
-});
+const cohereService = require('./services/cohereService.js');
+const twitchService = require('./services/twitchService.js');
 
 // App configuration
 const app = express();
@@ -25,35 +21,17 @@ app.use(
 );
 const appName = config.get('appName');
 const port = config.get('server.port');
-cohere.init(process.env.COHERE_API_KEY);
 
 // Routing
 app.post('/api/twitch/classify', async (req, res) => {
-	const response = await cohere.classify({
-		model: 'large',
-		inputs: [req.body.message],
-		examples: messages
-	});
-	res.json({ response: response.body.classifications });
+	const message = req.body.message;
+	const classified = await cohereService.classify(message);
+	res.json(classified);
 });
 
 app.get('/api/twitch/userinfo', async (req, res) => {
 	try {
-		const clientId = process.env.TWITCH_CLIENT_ID;
-		const clientSecret = process.env.TWITCH_CLIENT_SECRET;
-
-		const authUrl = config.get('TWITCH_AUTH_URL').replace('##CLIENT_ID##', clientId).replace('##CLIENT_SECRET##', clientSecret);
-		const responseToken = await fetch(authUrl, { method: 'POST' });
-		const dataToken = await responseToken.json();
-		const token = dataToken.access_token;
-
-		const responseInfo = await fetch(`${config.get('TWITCH_QUERY_URL')}${req.query.userName}`, {
-			headers: { Authorization: `Bearer ${token}`, 'Client-ID': clientId }
-		});
-		const dataInfo = await responseInfo.json();
-
-		const userInfo = dataInfo.data.filter((user) => user.broadcaster_login.toLowerCase() === req.query.userName.toLowerCase())[0];
-
+		const userInfo = await twitchService.getUserInfo(req.query.userName);
 		res.json({ isOnline: userInfo.is_live, avatarUrl: userInfo.thumbnail_url });
 	} catch (err) {
 		console.log(err);
