@@ -1,5 +1,7 @@
 {
 	"appName": "TwitchChatToxicity API [LOCAL]",
+	"TWITCH_AUTH_URL": "https://id.twitch.tv/oauth2/token?client_id=##CLIENT_ID##&client_secret=##CLIENT_SECRET##&grant_type=client_credentials",
+	"TWITCH_QUERY_URL": "https://api.twitch.tv/helix/search/channels?query=",
 	"server": {
 		"port": 4000
 	}
