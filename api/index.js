@@ -32,6 +32,7 @@ app.post('/api/twitch/classify', async (req, res) => {
 app.get('/api/twitch/userinfo', async (req, res) => {
 	try {
 		const userInfo = await twitchService.getUserInfo(req.query.userName);
+		if (!userInfo) throw new Error('User not found');
 		res.json({ isOnline: userInfo.is_live, avatarUrl: userInfo.thumbnail_url });
 	} catch (err) {
 		console.log(err);
