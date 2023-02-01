@@ -5,21 +5,23 @@ import { randomColors, startMessage, windowSize } from './config.js';
 export default function chatMessages({ userName }) {
 	let [messages, setMessages] = useState([startMessage]);
 	const [chatConnected, setChatConnected] = useState(false);
+	const [client, setClient] = useState(null);
+	const [currentUserName, setCurrentUserName] = useState(userName);
 
-	const client = useRef(
-		new Tmi.Client({
+	if (!client || client.channels.filter((e) => e === userName).length === 0) {
+		setClient(new Tmi.Client({
 			channels: [userName]
-		})
-	);
+		}));
+	}
 
 	useEffect(() => {
 		if (!chatConnected) {
-			client.current.connect().catch((err) => {
+			client.connect().catch((err) => {
 				console.log(err);
 			});
 		}
 
-		client.current.on('message', (channel, tags, message, self) => {
+		client.on('message', (channel, tags, message, self) => {
 			if (self) return;
 			const randomColor =
 				randomColors[Math.floor(Math.random() * randomColors.length)];

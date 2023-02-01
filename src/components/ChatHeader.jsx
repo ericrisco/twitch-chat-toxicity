@@ -32,8 +32,8 @@ export default function ChatMessage({ userName }) {
 
 	const UserStatus = (
 		<span className="ml-2" style={{ color: styleOnline }}>
-			<svg width="6" height="6">
-				<circle cx="3" cy="3" r="3" fill="currentColor"></circle>
+			<svg width="10" height="10">
+				<circle cx="5" cy="5" r="5" fill="currentColor"></circle>
 			</svg>
 		</span>
 	);
