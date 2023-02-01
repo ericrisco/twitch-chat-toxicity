@@ -1,53 +1,39 @@
-# Astro Starter Kit: Basics
+## Twitch Chat Toxicity Monitor
 
-```
-npm create astro@latest -- --template basics
-```
+A web-based tool that analyzes and displays Twitch chat messages for toxic behavior.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+### Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Reads Twitch chat messages for a specified user
+- Uses the Cohere.ai API to classify each message as toxic or not toxic
+- Displays the chat messages and toxicity scores on a user-friendly website
+- Shows the percentage of toxic messages in the overall chat
+- Identifies the users who are sending toxic messages
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+### Technologies Used
 
-## 🚀 Project Structure
+- [Astro 2.0](https://github.com/astrojs)
+- [React](https://reactjs.org/)
+- [Node.js](https://nodejs.org/)
+- [Cohere.ai](https://cohere.ai/)
+- [Twitch API](https://dev.twitch.tv/docs/api)
 
-Inside of your Astro project, you'll see the following folders and files:
+### Installation
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+1. Clone the repository: `git clone https://github.com/[YOUR_USERNAME]/twitch-chat-toxicity-monitor.git`
+2. Install the dependencies: `npm install`
+3. Set up your Cohere.ai API key in the `.env` file
+4. Start the development server: `npm start`
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Usage
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Go to the website and enter the Twitch username for the chat you want to analyze
+2. The website will display the chat messages and toxicity scores in real-time
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Contributing
 
-## 🧞 Commands
+If you want to contribute to this project, please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
 
-All commands are run from the root of the project, from a terminal:
+### License
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
