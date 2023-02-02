@@ -12,7 +12,8 @@ const twitchService = require('./services/twitchService.js');
 // App configuration
 const app = express();
 app.use(helmet());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(
 	morgan(

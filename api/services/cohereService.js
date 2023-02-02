@@ -14,9 +14,18 @@ async function classify(message) {
 		examples: messages
 	});
 
-	if (response == null || response.body == null || response.body.classifications == null || response.body.classifications.length === 0) return null;
+	if (response == null || response.body == null || response.body.classifications == null || response.body.classifications.length === 0) {
+		return {};
+	}
 
-	return response.body.classifications[0];
+	const classification = response.body.classifications[0];
+	const json = {
+		isToxic: classification.prediction === 'Toxic',
+		confidence: classification.confidence,
+		toxicLevel: classification.confidence > 0.8 ? 'high' : classification.confidence > 0.5 ? 'medium' : 'low'
+	};
+
+	return json;
 }
 
 module.exports = {
