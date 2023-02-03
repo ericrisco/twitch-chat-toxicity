@@ -37,7 +37,9 @@ app.get('/api/twitch/userinfo', async (req, res) => {
 		res.json({ isOnline: userInfo.is_live, avatarUrl: userInfo.thumbnail_url });
 	} catch (err) {
 		console.log(err);
-		res.status(400).json({ isOnline: false, avatarUrl: '', error: err.toString() });
+		res
+			.status(400)
+			.json({ isOnline: false, avatarUrl: '', error: err.toString() });
 	}
 });
 

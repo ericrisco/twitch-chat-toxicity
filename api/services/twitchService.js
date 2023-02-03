@@ -14,7 +14,8 @@ async function getUserInfo(userName) {
 	const token = dataToken.access_token;
 
 	const responseInfo = await fetch(
-		`${config.get('TWITCH_QUERY_URL')}${userName}`, {
+		`${config.get('TWITCH_QUERY_URL')}${userName}`,
+		{
 			headers: { Authorization: `Bearer ${token}`, 'Client-ID': clientId }
 		}
 	);
