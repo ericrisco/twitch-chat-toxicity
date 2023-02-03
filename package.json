@@ -5,8 +5,8 @@
 	"private": true,
 	"scripts": {
 		"api": "nodemon api/index.js",
+		"start": "node api/index.js",
 		"dev": "astro dev",
-		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
