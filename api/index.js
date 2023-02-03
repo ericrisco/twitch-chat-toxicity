@@ -24,13 +24,13 @@ const appName = config.get('appName');
 const port = config.get('server.port');
 
 // Routing
-app.post('/api/twitch/classify', async (req, res) => {
+app.post('/api/classify', async (req, res) => {
 	const message = req.body.message;
 	const classified = await cohereService.classify(message);
 	res.json(classified);
 });
 
-app.get('/api/twitch/userinfo', async (req, res) => {
+app.get('/api/userinfo', async (req, res) => {
 	try {
 		const userInfo = await twitchService.getUserInfo(req.query.userName);
 		if (!userInfo) throw new Error('User not found');
@@ -43,6 +43,4 @@ app.get('/api/twitch/userinfo', async (req, res) => {
 	}
 });
 
-app.listen(port, async () =>
-	console.log(`${appName} v3 listening on port ${port}`)
-);
+module.exports = app;
