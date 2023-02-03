@@ -10,7 +10,7 @@ export default function chatMessages({ userName }) {
 
 	const client = new Tmi.Client({
 		channels: [userName],
-		secure: true
+		connection: { secure: true }
 	});
 
 	useEffect(() => {
