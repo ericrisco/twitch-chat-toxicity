@@ -1,16 +1,11 @@
 const cohere = require('cohere-ai');
-
 require('dotenv').config();
 cohere.init(process.env.COHERE_API_KEY);
 
-const dataset = require('../dataset/dataset.js');
-const messages = dataset.getDataset();
-
 async function classify(message) {
 	const response = await cohere.classify({
-		model: 'large',
-		inputs: [message],
-		examples: messages
+		model: 'e4a74d77-11f0-42ef-af96-2781f879bc1d-ft',
+		inputs: [message]
 	});
 
 	if (
@@ -26,7 +21,7 @@ async function classify(message) {
 	const json = {
 		isToxic: classification.prediction !== 'benigne',
 		confidence: classification.confidence,
-		severity: classification.confidence > 0.85 ? 'hight' : classification.confidence > 0.5 ? 'medium' : 'low'
+		severity: classification.confidence > 0.90 ? 'hight' : classification.confidence > 0.75 ? 'medium' : 'low'
 	};
 
 	return json;
