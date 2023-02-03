@@ -9,7 +9,8 @@ export default function chatMessages({ userName }) {
 	const [currentUserName, setCurrentUserName] = useState(userName);
 
 	const client = new Tmi.Client({
-		channels: [userName]
+		channels: [userName],
+		secure: true
 	});
 
 	useEffect(() => {
