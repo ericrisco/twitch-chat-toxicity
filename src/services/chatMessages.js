@@ -1,18 +1,16 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Tmi from 'react-tmi';
-import { randomColors, startMessage, windowSize } from './config.js';
+import { randomColors, windowSize } from './config.js';
+import { classifyMessage } from './classifyMessage.js';
 
 export default function chatMessages({ userName }) {
-	let [messages, setMessages] = useState([startMessage]);
+	let [messages, setMessages] = useState([]);
 	const [chatConnected, setChatConnected] = useState(false);
-	const [client, setClient] = useState(null);
 	const [currentUserName, setCurrentUserName] = useState(userName);
 
-	if (!client || client.channels.filter((e) => e === userName).length === 0) {
-		setClient(new Tmi.Client({
-			channels: [userName]
-		}));
-	}
+	const client = new Tmi.Client({
+		channels: [userName]
+	});
 
 	useEffect(() => {
 		if (!chatConnected) {
@@ -37,11 +35,18 @@ export default function chatMessages({ userName }) {
 					(e) => e.message === message && e.userName === newMessage.userName
 				).length === 0;
 
-			if (notRepeated) {
-				messages = [...messages.slice(-windowSize), newMessage];
-				setMessages(messages);
-				setChatConnected(true);
-			}
+			classifyMessage(message)
+				.then((classified) => {
+					setChatConnected(true);
+					newMessage.classified = classified;
+					if (notRepeated) {
+						messages = [...messages.slice(-windowSize), newMessage];
+					}
+					setMessages(messages);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
 		});
 	}, [messages]);
 

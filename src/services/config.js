@@ -1,11 +1,9 @@
-export const apiURL = 'https://andocarbur.com/api/twitch';
+export const isDevelopment = import.meta.env.MODE !== 'production';
+export const apiURL = isDevelopment
+	? 'http://localhost:4000/api/twitch'
+	: 'https://andocarbur.com/api/twitch';
 
 export const windowSize = 30;
-
-export const startMessage = {
-	message: 'Welcome to the chat!',
-	userName: 'TwitchToxicTracker'
-};
 
 export const randomColors = [
 	'#3498db',
@@ -13,5 +11,11 @@ export const randomColors = [
 	'#9b59b6',
 	'#f1c40f',
 	'#e67e22',
-	'#e74c3c'
+	'#e74c3c',
+	'#5f27cd',
+	'#ff9ff3',
+	'#00d2d3',
+	'#2e86de',
+	'#A3CB38',
+	'#1B1464'
 ];

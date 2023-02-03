@@ -1,21 +1,20 @@
-import { useState } from 'react';
-
-export default function Form({ changeUserName }) {
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		changeUserName(e.target.username.value);
-	};
-
+export default function Form() {
 	return (
 		<div className="flex min-h-full justify-center py-12 px-4 sm:px-6 lg:px-8">
 			<div className="w-full max-w-md space-y-8">
-				<form
-					className="mt-8 space-y-6"
-					onSubmit={(e) => handleSubmit(e)}
-					autoComplete="off">
-					<h3 className="text-center font-black text-white text-3xl pt-10 pb-6">Twitch ☣️Toxic <p className='text-5xl'>Tracker</p></h3>
-					<p className="text-center font-light text-white text-md pb-3">Toxic messages can be harmful to the streamer and the community, and often include hate speech, bullying, and harassment. This app uses advanced natural language processing techniques to identify toxic messages and flag them for the streamer's attention</p>
-					<p className="text-center font-light text-white text-md pb-6">Add one Twitch streamer user name to track his chat</p>
+				<form className="mt-8 space-y-6" type="get" autoComplete="off">
+					<h3 className="text-center font-black text-white text-3xl pt-10 pb-6">
+						Twitch ☣️Toxic <p className="text-5xl">Tracker</p>
+					</h3>
+					<p className="text-center font-light text-white text-md pb-3">
+						Toxic messages can be harmful to the streamer and the community, and
+						often include hate speech, bullying, and harassment. This app uses
+						advanced natural language processing techniques to identify toxic
+						messages and flag them for the streamer's attention
+					</p>
+					<p className="text-center font-light text-white text-md pb-6">
+						Add one Twitch streamer user name to track his chat
+					</p>
 					<div className="flex rounded-md shadow-sm">
 						<span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-500">
 							@

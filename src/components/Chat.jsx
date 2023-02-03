@@ -1,5 +1,3 @@
-import { useEffect, useRef } from 'react';
-
 import ChatHeader from '@components/ChatHeader';
 import ChatMessages from '@components/ChatMessages';
 import Loading from '@components/Loading';
@@ -11,14 +9,14 @@ export default function Chat({ userName }) {
 
 	if (chatConnected) {
 		return (
-			<div className="w-full h-fit bg-white">
+			<div className="w-full h-screen flex flex-col bg-[#f5f6fa]">
 				<ChatHeader userName={userName}></ChatHeader>
 				<ChatMessages messages={messages}></ChatMessages>
 			</div>
 		);
 	} else {
 		return (
-			<div className="w-full h-[720px] bg-white">
+			<div className="w-full h-screen flex flex-col bg-[#f5f6fa]">
 				<ChatHeader userName={userName}></ChatHeader>
 				<Loading></Loading>
 			</div>

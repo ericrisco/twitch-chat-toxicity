@@ -9,15 +9,11 @@ export default function ChatMessages({ messages }) {
 	}
 
 	return (
-		<div id="chat" className="w-full h-[700px] overflow-y-auto p-2 relative">
+		<div id="chat" className="w-full h-full overflow-y-auto p-2 relative">
 			<ul ref={scrollable}>
 				{messages &&
 					messages.map((message, index) => (
-						<ChatMessage
-							key={index}
-							userName={message.userName}
-							message={message.message}
-							color={message.color}></ChatMessage>
+						<ChatMessage key={index} message={message}></ChatMessage>
 					))}
 			</ul>
 		</div>
