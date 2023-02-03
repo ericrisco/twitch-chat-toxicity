@@ -20,8 +20,6 @@ app.use(
 		'[:date[clf]]: :remote-addr ":user-agent" :method :url :status - :response-time ms'
 	)
 );
-const appName = config.get('appName');
-const port = config.get('server.port');
 
 // Routing
 app.post('/api/classify', async (req, res) => {
