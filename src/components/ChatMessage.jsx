@@ -17,9 +17,11 @@ export default function ChatMessage({ message }) {
 	const ToxicIcon = (
 		<p className="text-[16px]">
 			{
-				message.classified.isToxic
-				? <span>☣️</span>
-				: <span>✔️</span>
+				message.classified.isToxic && message.classified.toxicLevel === 'hight'
+					? <span>💀</span>
+					: message.classified.isToxic && (message.classified.toxicLevel === 'medium' || message.classified.toxicLevel === 'light')
+						? <span>☣️</span>
+						: <span>✔️</span>
 			}
 		</p>
 	);
