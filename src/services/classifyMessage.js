@@ -11,7 +11,7 @@ export async function classifyMessage(message) {
 		body: json
 	};
 
-	const response = await fetch(`${apiURL}/classify`, options);
+	const response = await fetch(`${apiURL}classify`, options);
 	const data = await response.json();
 	return data;
 }

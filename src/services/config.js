@@ -1,7 +1,7 @@
 export const isDevelopment = import.meta.env.MODE !== 'production';
 export const apiURL = isDevelopment
-	? 'http://localhost:4000/api/twitch'
-	: 'https://andocarbur.com/api/twitch';
+	? 'http://localhost:3000/api/'
+	: 'https://twitch-chat-toxicity.vercel.app/';
 
 export const windowSize = 30;
 
