@@ -1,7 +1,7 @@
 export default function ChatMessage({ message }) {
 	let classColor = '';
 	if (message.classified.isToxic) {
-		switch (message.classified.toxicLevel) {
+		switch (message.classified.severity) {
 			case 'hight':
 				classColor = 'bg-[#e74c3c]';
 				break;
@@ -17,9 +17,9 @@ export default function ChatMessage({ message }) {
 	const ToxicIcon = (
 		<p className="text-[16px]">
 			{
-				message.classified.isToxic && message.classified.toxicLevel === 'hight'
+				message.classified.isToxic && message.classified.severity === 'hight'
 					? <span>💀</span>
-					: message.classified.isToxic && (message.classified.toxicLevel === 'medium' || message.classified.toxicLevel === 'light')
+					: message.classified.isToxic && (message.classified.severity === 'medium' || message.classified.severity === 'light')
 						? <span>☣️</span>
 						: <span>✔️</span>
 			}
@@ -33,7 +33,7 @@ export default function ChatMessage({ message }) {
 	);
 
 	return (
-		<li className="clearfix2">
+		<li className="clearfix2 transition duration-500 hover:scale-110">
 			<div className={`text-[14px] py-1 px-2 rounded hover:bg-gray-500/30 leading-6 ${classColor}`}>
 				<div className="inline-flex items-baseline">{ToxicIcon}</div>
 				<div className="pl-2 inline-flex items-baseline">{Username}</div>
