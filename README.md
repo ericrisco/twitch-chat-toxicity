@@ -1,6 +1,6 @@
 # ☣️ Twitch Toxic Tracker
 
-![Captura de pantalla 2023-02-05 001612](https://user-images.githubusercontent.com/20164590/216793561-54e25bdd-98c0-49d5-9154-586dd24fc81e.png)
+![captura1](https://user-images.githubusercontent.com/20164590/216798121-bc84dfc7-7e53-4f9d-9318-1e4db4dabd4e.png)
 
 The **Twitch Toxic Tracker** is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages.
 
@@ -96,3 +96,4 @@ npm run dev
 - In future versions of this app, it will no longer be possible to enter the username of the person whose chat you want to read. Instead, you will have to log in with your Twitch account in order to view your own chat. This will allow for better control of app usage.
 - With the previous point implemented, it will also be possible to integrate more features from the Twitch API, such as the ability to ban directly from the web app interface.
 - With the two previous points implemented, a system will be set up where the streamer themselves can detect false positives or false negatives. In this way, the AI will be able to train incrementally and with the help of the users.
+
