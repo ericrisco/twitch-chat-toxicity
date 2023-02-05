@@ -6,7 +6,9 @@ import { classifyMessage } from './classifyMessage.js';
 export default function chatMessages({ userName }) {
 	let [messages, setMessages] = useState([]);
 	const [chatConnected, setChatConnected] = useState(false);
-	const [currentUserName, setCurrentUserName] = useState(userName);
+	let [classified, setClassified] = useState(
+		{ benign: 0, hight: 0, medium: 0, low: 0 }
+	);
 
 	const client = new Tmi.Client({
 		channels: [userName],
@@ -37,13 +39,21 @@ export default function chatMessages({ userName }) {
 				).length === 0;
 
 			classifyMessage(message)
-				.then((classified) => {
+				.then((classification) => {
 					setChatConnected(true);
-					newMessage.classified = classified;
+					newMessage.classified = classification;
 					if (notRepeated) {
 						messages = [...messages.slice(-windowSize), newMessage];
 					}
 					setMessages(messages);
+
+					classified = {
+						benign: classification.isToxic ? classified.benign : classified.benign + 1,
+						hight: classification.isToxic && classification.severity === 'hight' ? classified.hight + 1 : classified.hight,
+						medium: classification.isToxic && classification.severity === 'medium' ? classified.medium + 1 : classified.medium,
+						low: classification.isToxic && classification.severity === 'low' ? classified.low + 1 : classified.low
+					};
+					setClassified(classified);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -53,6 +63,7 @@ export default function chatMessages({ userName }) {
 
 	return {
 		messages,
-		chatConnected
+		chatConnected,
+		classified
 	};
 }
