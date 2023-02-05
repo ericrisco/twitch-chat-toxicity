@@ -6,7 +6,6 @@ import { classifyMessage } from './classifyMessage.js';
 export default function chatMessages({ userName }) {
 	let [messages, setMessages] = useState([]);
 	const [chatConnected, setChatConnected] = useState(false);
-	const [currentUserName, setCurrentUserName] = useState(userName);
 
 	const client = new Tmi.Client({
 		channels: [userName],

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getUserInfo } from '@services/userInfo';
+import { getUserInfo } from '@hooks/userInfo';
 
 export default function ChatMessage({ userName }) {
 	const [data, setData] = useState({
@@ -43,7 +43,7 @@ export default function ChatMessage({ userName }) {
 	);
 
 	const headerLoading = (
-		<div className="flex items-center border-b border-gray-300 pl-3 py-3">
+		<div className="h-[8vh] flex items-center border-b border-gray-300 pl-3 py-3">
 			<div className="flex items-center w-full space-x-2">
 				<div className="h-10 w-10 bg-gray-200 rounded-full dark:bg-gray-700"></div>
 				<div className="h-6 w-[300px] bg-gray-300 rounded-full "></div>
@@ -52,7 +52,7 @@ export default function ChatMessage({ userName }) {
 	);
 
 	const headerOk = (
-		<div className="flex items-center border-b border-gray-300 pl-3 py-3">
+		<div className="h-[8vh] flex items-center border-b border-gray-300 pl-3 py-3">
 			{Avatar}
 			<span>
 				{UserInfo}
@@ -64,7 +64,7 @@ export default function ChatMessage({ userName }) {
 	const headerError = (
 		<div
 			id="alert-border-2"
-			className="flex p-2 mb-2 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
+			className="h-[8vh] flex p-2 mb-2 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
 			role="alert">
 			<svg
 				className="flex-shrink-0 w-5 h-5"

@@ -2,7 +2,7 @@ import ChatHeader from '@components/ChatHeader';
 import ChatMessages from '@components/ChatMessages';
 import Loading from '@components/Loading';
 
-import chatMessages from '@services/chatMessages';
+import chatMessages from '@hooks/chatMessages';
 
 export default function Chat({ userName }) {
 	const { messages, chatConnected } = chatMessages({ userName });
