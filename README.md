@@ -4,13 +4,13 @@
 
 The **Twitch Toxic Tracker** is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages.
 
-The app connects to Twitch and reads the chat messages for a specified user. Utilizing the Cohere.ai API, it classifies each message as either toxic or not toxic based on its machine learning algorithms and training data. The results are displayed on a user-friendly website in a clear and concise manner.
+The app connects to Twitch and reads the chat messages for a specified user. Utilizing the **Cohere.ai** API, it classifies each message as either __toxic__ or __benign__ based on its machine learning algorithms and training data. The results are displayed on a user-friendly website in a clear and concise manner.
 
 Not only does the app show the toxicity scores for each message, it also displays the overall percentage of toxic messages in the chat. This provides valuable insights into the health of the chat and allows for proactive measures to be taken to address any toxic behavior.
 
-Additionally, the Twitch Chat Toxic Message Classifier identifies the users who are sending toxic messages. This feature empowers moderators to take appropriate action against toxic users and maintain a safe and enjoyable environment for everyone.
+Additionally, the **Twitch Toxic Tracker** identifies the users who are sending toxic messages. This feature empowers moderators to take appropriate action against toxic users and maintain a safe and enjoyable environment for everyone.
 
-Overall, the Twitch Chat Toxic Message Classifier is an essential tool for streamers and moderators who want to ensure a positive and engaging experience for their viewers. With its real-time monitoring, user-friendly display, and robust features, it is the perfect solution for keeping Twitch chats healthy and enjoyable for all.
+Overall, the **Twitch Toxic Tracker** is an essential tool for streamers and moderators who want to ensure a positive and engaging experience for their viewers. With its real-time monitoring, user-friendly display, and robust features, it is the perfect solution for keeping Twitch chats healthy and enjoyable for all.
 
 <p align="center">
 <a href="https://twitch-chat-toxicity.vercel.app/" target="blank">View project</a>
@@ -61,8 +61,7 @@ e4a74d77-11f0-42ef-af96-2781f879bc1d-ft
 - With that huge amount of messages, a Cohere.ai model was trained and these are the results:
 
 ![trained_model](https://user-images.githubusercontent.com/20164590/216793201-25dc23d7-02f1-4747-a1b1-ab63292b2164.png)
-</br>
-</br>
+
 ## 🗺️ Demo Usage
 
 - Go to the website [https://twitch-chat-toxicity.vercel.app/](https://twitch-chat-toxicity.vercel.app/) and enter the Twitch username for the chat you want to analyze
