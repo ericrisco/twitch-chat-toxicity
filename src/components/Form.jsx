@@ -7,13 +7,13 @@ export default function Form() {
 						Twitch ☣️Toxic <p className="text-5xl">Tracker</p>
 					</h3>
 					<p className="text-center font-light text-white text-md pb-3">
-						Toxic messages can be harmful to the streamer and the community, and
-						often include hate speech, bullying, and harassment. This app uses
-						advanced natural language processing techniques to identify toxic
-						messages and flag them for the streamer's attention
+					The Twitch Toxic Tracker is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages.
 					</p>
 					<p className="text-center font-light text-white text-md pb-6">
 						Add one Twitch streamer user name to track his chat
+					</p>
+					<p className="text-center font-light text-white text-md pb-6">
+						You can resize this window and attach it to your stream to monitor the chat in real-time
 					</p>
 					<div className="flex rounded-md shadow-sm">
 						<span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-500">
