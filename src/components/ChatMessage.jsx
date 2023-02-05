@@ -1,7 +1,7 @@
 export default function ChatMessage({ message }) {
 	let classColor = '';
 	if (message.classified.isToxic) {
-		switch (message.classified.toxicLevel) {
+		switch (message.classified.severity) {
 			case 'hight':
 				classColor = 'bg-[#e74c3c]';
 				break;
@@ -17,11 +17,15 @@ export default function ChatMessage({ message }) {
 	const ToxicIcon = (
 		<p className="text-[16px]">
 			{
-				message.classified.isToxic && message.classified.toxicLevel === 'hight'
-					? <span>💀</span>
-					: message.classified.isToxic && (message.classified.toxicLevel === 'medium' || message.classified.toxicLevel === 'light')
-						? <span>☣️</span>
-						: <span>✔️</span>
+				message.classified.error !== null && message.classified.error !== undefined
+					? <span>🔌</span>
+					: message.classified.isToxic && message.classified.severity === 'hight'
+						? <span>💀</span>
+						: message.classified.isToxic && message.classified.severity === 'medium'
+							? <span>☣️</span>
+							: message.classified.isToxic && message.classified.severity === 'light'
+								? <span>🤔</span>
+								: <span>✔️</span>
 			}
 		</p>
 	);
