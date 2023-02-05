@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getUserInfo } from '@services/userInfo';
 
-export default function ChatMessage({ userName }) {
+export default function ChatHeader({ userName, classified }) {
 	const [data, setData] = useState({
 		isOnline: false,
 		avatarUrl: '/favicon.svg',
@@ -9,6 +9,10 @@ export default function ChatMessage({ userName }) {
 		error: null
 	});
 	const styleOnline = data.isOnline ? 'green' : 'red';
+
+	if (classified === undefined) {
+		classified = { benign: 0, toxic: 0, hight: 0, medium: 0, low: 0 };
+	}
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -20,7 +24,7 @@ export default function ChatMessage({ userName }) {
 
 	const Avatar = (
 		<img
-			className="h-10 w-10 rounded-full object-cover border-2"
+			className="h-10 w-10 rounded-full object-cover border-2 transition duration-500 hover:scale-125"
 			style={{ borderColor: styleOnline }}
 			src={data.avatarUrl}
 			alt={userName}
@@ -42,7 +46,46 @@ export default function ChatMessage({ userName }) {
 		</span>
 	);
 
-	const headerLoading = (
+	const Classification = (
+		<div className="flex pr-3">
+			<div className="flex items-center w-full">
+				<div className="flex-col w-14 text-center font-semibold mr-1 rounded-full border bg-red-500 transition duration-500 hover:scale-125">
+					<div className="">
+						💀
+					</div>
+					<div className="text-sm text-slate-900">
+						{classified.hight}
+					</div>
+				</div>
+				<div className="flex-col w-14 text-center font-semibold mr-1 rounded-full border bg-orange-500 transition duration-500 hover:scale-125">
+					<div className="">
+						☣️
+					</div>
+					<div className="text-sm text-slate-900">
+						{classified.medium}
+					</div>
+				</div>
+				<div className="flex-col w-14 text-center font-semibold mr-1 rounded-full border bg-yellow-500 transition duration-500 hover:scale-125">
+					<div className="">
+						✔️
+					</div>
+					<div className="text-sm text-slate-900">
+						{classified.low}
+					</div>
+				</div>
+				<div className="flex-col w-14 text-center font-semibold mr-1 rounded-full border bg-green-500 transition duration-500 hover:scale-125">
+					<div className="">
+						✔️
+					</div>
+					<div className="text-sm text-slate-900">
+						{classified.benign}
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+
+	const HeaderLoading = (
 		<div className="flex items-center border-b border-gray-300 pl-3 py-3">
 			<div className="flex items-center w-full space-x-2">
 				<div className="h-10 w-10 bg-gray-200 rounded-full dark:bg-gray-700"></div>
@@ -51,17 +94,18 @@ export default function ChatMessage({ userName }) {
 		</div>
 	);
 
-	const headerOk = (
+	const HeaderOk = (
 		<div className="flex items-center border-b border-gray-300 pl-3 py-3">
 			{Avatar}
-			<span>
+			<span className="grow">
 				{UserInfo}
 				{UserStatus}
 			</span>
+			{Classification}
 		</div>
 	);
 
-	const headerError = (
+	const HeaderError = (
 		<div
 			id="alert-border-2"
 			className="flex p-2 mb-2 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
@@ -80,5 +124,5 @@ export default function ChatMessage({ userName }) {
 		</div>
 	);
 
-	return data.loading ? headerLoading : data.error ? headerError : headerOk;
+	return data.loading ? HeaderLoading : data.error ? HeaderError : HeaderOk;
 }
