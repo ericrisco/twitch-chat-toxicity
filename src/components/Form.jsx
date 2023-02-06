@@ -1,6 +1,6 @@
 export default function Form() {
 	return (
-		<div className="flex min-h-full justify-center py-12 px-4 sm:px-6 lg:px-8">
+		<div className="flex min-h-full justify-center py-3 px-4 sm:px-6 lg:px-8">
 			<div className="w-full max-w-md space-y-8">
 				<form className="mt-8 space-y-6" type="get" autoComplete="off">
 					<h3 className="text-center font-black text-white text-3xl pt-10 pb-6">
