@@ -5,9 +5,9 @@ export default function Form() {
 		<div className="flex min-h-full justify-center pt-1 px-4 sm:px-6 lg:px-8">
 			<div className="w-full max-w-lg space-y-8">
 				<h1
-					className="font-extrabold text-transparent text-center text-5xl pt-20 bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+					className="font-extrabold text-transparent text-center text-6xl pt-20 bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
 					style={{ WebkitBackgroundClip: 'text' }}>
-					Twitch Toxic <p className="text-7xl">Tracker</p>
+					Twitch Toxic <p className="text-8xl">Tracker</p>
 				</h1>
 				<form className="mt-8 space-y-6" type="get" autoComplete="off">
 					<p className="text-center font-light dark:text-gray-300 text-md pb-3 dark:text-black-300">

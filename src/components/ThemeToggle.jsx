@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
   // eslint-disable-next-line no-undef
-  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'light');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'dark');
 
   const handleClick = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
@@ -20,7 +20,7 @@ export default function ThemeToggle() {
 
   return (
 	<p className="text-center font-light dark:text-gray-300 text-md pb-3 dark:text-black-300">
-		<button className='p-2 border-2 rounded-full border-black dark:border-gray-300' onClick={handleClick}>{
+		<button className='p-2 border rounded-full border-black dark:border-gray-300' onClick={handleClick}>{
 			theme === 'light'
 				? '🌙 Dark Mode'
 				: '🌞 Light Mode'
