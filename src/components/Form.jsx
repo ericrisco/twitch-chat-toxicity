@@ -10,9 +10,6 @@ export default function Form() {
 					The Twitch Toxic Tracker is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages.
 					</p>
 					<p className="text-center font-light text-white text-md pb-6">
-						Add one Twitch streamer user name to track his chat
-					</p>
-					<p className="text-center font-light text-white text-md pb-6">
 						You can resize this window and attach it to your stream to monitor the chat in real-time
 					</p>
 					<div className="flex rounded-md shadow-sm">
