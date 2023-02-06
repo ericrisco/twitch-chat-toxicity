@@ -67,7 +67,7 @@ export default function ChatHeader({ userName, classified }) {
 				</div>
 				<div className="flex-col w-14 text-center font-semibold mr-1 rounded-full border bg-yellow-500 transition duration-500 hover:scale-125">
 					<div className="">
-						✔️
+						🤔
 					</div>
 					<div className="text-sm text-slate-900">
 						{classified.low}
