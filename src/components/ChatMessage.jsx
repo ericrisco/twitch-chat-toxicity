@@ -23,7 +23,7 @@ export default function ChatMessage({ message }) {
 						? <span>💀</span>
 						: message.classified.isToxic && message.classified.severity === 'medium'
 							? <span>☣️</span>
-							: message.classified.isToxic && message.classified.severity === 'light'
+							: message.classified.isToxic && message.classified.severity === 'low'
 								? <span>🤔</span>
 								: <span>✔️</span>
 			}
