@@ -1,38 +1,52 @@
----
-import { GoogleAnalytics } from 'astro-analytics';
----
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel='dns-prefetch' href='//www.google.com' />
-		<link rel='dns-prefetch' href='//maps.googleapis.com' />
-		<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-		<link rel='dns-prefetch' href='//ajax.googleapis.com' />
-		<link rel='dns-prefetch' href='//fonts.gstatic.com' />
-		<link rel='dns-prefetch' href='//connect.facebook.net' />
-		<link rel='dns-prefetch' href='//www.facebook.com' />
-		<link rel='dns-prefetch' href='//staticxx.facebook.com' />
-		<link rel='dns-prefetch' href='//static.xx.fbcdn.net' />
-		<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+		<link rel="dns-prefetch" href="//www.google.com" />
+		<link rel="dns-prefetch" href="//maps.googleapis.com" />
+		<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+		<link rel="dns-prefetch" href="//fonts.gstatic.com" />
+		<link rel="dns-prefetch" href="//connect.facebook.net" />
+		<link rel="dns-prefetch" href="//www.facebook.com" />
+		<link rel="dns-prefetch" href="//staticxx.facebook.com" />
+		<link rel="dns-prefetch" href="//static.xx.fbcdn.net" />
+		<link rel="dns-prefetch" href="//www.googletagmanager.com" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Twitch Chat Toxicity</title>
 		<meta name="title" content="Twitch Chat Toxicity" />
-		<meta name="description" content="The Twitch Toxic Tracker is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages."/>
-		<meta name="keywords" content="Twitch, Toxic Tracker, application, real-time monitoring, analysis, chat messages, streamers, moderators, positive, welcoming environment, viewers, detecting, classifying, toxic messages.">
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Twitch Chat Toxicity">
-		<meta name="twitter:description" content="The Twitch Toxic Tracker is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages." />
-		<meta name="twitter:image" content="https://twitch-chat-toxicity.vercel.app/webapp.png" />
+		<meta
+			name="description"
+			content="The Twitch Toxic Tracker is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages."
+		/>
+		<meta
+			name="keywords"
+			content="Twitch, Toxic Tracker, application, real-time monitoring, analysis, chat messages, streamers, moderators, positive, welcoming environment, viewers, detecting, classifying, toxic messages."
+		/>
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Twitch Chat Toxicity" />
+		<meta
+			name="twitter:description"
+			content="The Twitch Toxic Tracker is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://twitch-chat-toxicity.vercel.app/webapp.png"
+		/>
 		<meta property="og:title" content="Twitch Chat Toxicity" />
-		<meta property="og:description" content="The Twitch Toxic Tracker is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages." />
+		<meta
+			property="og:description"
+			content="The Twitch Toxic Tracker is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages."
+		/>
 		<meta property="og:url" content="https://twitch-chat-toxicity.vercel.app" />
-		<meta property="og:image" content="https://twitch-chat-toxicity.vercel.app/webapp.png" />
+		<meta
+			property="og:image"
+			content="https://twitch-chat-toxicity.vercel.app/webapp.png"
+		/>
 		<meta property="og:type" content="website" />
-		<link href="https://www.pyrenees.ad/" rel="canonical">
+		<link href="https://www.pyrenees.ad/" rel="canonical" />
 		<meta name="revisit-after" content="15 days" />
 		<meta name="distribution" content="global" />
 		<meta name="resource-type" content="document" />
@@ -41,9 +55,32 @@ import { GoogleAnalytics } from 'astro-analytics';
 		<meta name="owner" content="Eric Risco de la Torre" />
 		<meta name="robot" content="all" />
 		<meta content="noarchive" name="googlebot" />
-		<script>(window as any).global = window;</script>
+		<script>
+			(window as any).global = window;
+		</script>
 	</head>
-	<body class="bg-[#2c3e50] text-[#2c3e50] font-twitch">
+	<body class="bg-gray-200 dark:bg-zinc-900 font-twitch">
 		<slot />
 	</body>
+	<script is:inline>
+		const theme = (() => {
+			if (
+				typeof localStorage !== 'undefined' &&
+				localStorage.getItem('theme')
+			) {
+				return localStorage.getItem('theme');
+			}
+			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				return 'dark';
+			}
+			return 'light';
+		})();
+
+		if (theme === 'light') {
+			document.documentElement.classList.remove('dark');
+		} else {
+			document.documentElement.classList.add('dark');
+		}
+		window.localStorage.setItem('theme', theme);
+	</script>
 </html>

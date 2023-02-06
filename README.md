@@ -4,7 +4,7 @@
 
 The **Twitch Toxic Tracker** is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages.
 
-The app connects to Twitch and reads the chat messages for a specified user. Utilizing the **Cohere.ai** API, it classifies each message as either __toxic__ or __benign__ based on its machine learning algorithms and training data. The results are displayed on a user-friendly website in a clear and concise manner.
+The app connects to Twitch and reads the chat messages for a specified user. Utilizing the **Cohere.ai** API, it classifies each message as either **toxic** or **benign** based on its machine learning algorithms and training data. The results are displayed on a user-friendly website in a clear and concise manner.
 
 Not only does the app show the toxicity scores for each message, it also displays the overall percentage of toxic messages in the chat. This provides valuable insights into the health of the chat and allows for proactive measures to be taken to address any toxic behavior.
 
@@ -52,6 +52,7 @@ The main idea is for the streamer to enter their username, resize the window, an
 ## 🤖 Custom Model
 
 ### Trained Custom Model ID
+
 ```bash
 e4a74d77-11f0-42ef-af96-2781f879bc1d-ft
 ```
@@ -91,7 +92,7 @@ npm install
 
 3. Rename `.env.example` file to `.env` and add your own Cohere.ai API Key
 4. Add your own Twitch Cliend id and Twitch Client Secret
-5. Start the development server: 
+5. Start the development server:
 
 ```bash
 npm run dev
@@ -102,4 +103,3 @@ npm run dev
 - In future versions of this app, it will no longer be possible to enter the username of the person whose chat you want to read. Instead, you will have to log in with your Twitch account in order to view your own chat. This will allow for better control of app usage.
 - With the previous point implemented, it will also be possible to integrate more features from the Twitch API, such as the ability to ban directly from the web app interface.
 - With the two previous points implemented, a system will be set up where the streamer themselves can detect false positives or false negatives. In this way, the AI will be able to train incrementally and with the help of the users.
-

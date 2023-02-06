@@ -35,7 +35,12 @@ export async function post({ request }) {
 		const json = {
 			isToxic: classification.prediction !== 'benign',
 			confidence: classification.confidence,
-			severity: classification.confidence > 0.90 ? 'hight' : classification.confidence > 0.75 ? 'medium' : 'low'
+			severity:
+				classification.confidence > 0.9
+					? 'hight'
+					: classification.confidence > 0.75
+					? 'medium'
+					: 'low'
 		};
 
 		return new Response(JSON.stringify(json), { status: 200 });

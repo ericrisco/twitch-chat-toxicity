@@ -1,16 +1,25 @@
+import ThemeToggle from '@components/ThemeToggle';
+
 export default function Form() {
 	return (
 		<div className="flex min-h-full justify-center pt-1 px-4 sm:px-6 lg:px-8">
-			<div className="w-full max-w-md space-y-8">
+			<div className="w-full max-w-lg space-y-8">
+				<h1
+					className="font-extrabold text-transparent text-center text-5xl pt-20 bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+					style={{ WebkitBackgroundClip: 'text' }}>
+					Twitch Toxic <p className="text-7xl">Tracker</p>
+				</h1>
 				<form className="mt-8 space-y-6" type="get" autoComplete="off">
-					<h3 className="text-center font-black text-white text-3xl pt-10 pb-6">
-						Twitch ☣️Toxic <p className="text-5xl">Tracker</p>
-					</h3>
-					<p className="text-center font-light text-white text-md pb-3">
-					The Twitch Toxic Tracker is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages.
+					<p className="text-center font-light dark:text-gray-300 text-md pb-3 dark:text-black-300">
+						The Twitch Toxic Tracker is an innovative application that provides
+						real-time monitoring and analysis of Twitch chat messages. It is
+						designed to help streamers and moderators maintain a positive and
+						welcoming environment for their viewers by detecting and classifying
+						toxic messages.
 					</p>
-					<p className="text-center font-light text-white text-md pb-6">
-						You can resize this window and attach it to your stream to monitor the chat in real-time
+					<p className="text-center font-light dark:text-gray-300 text-md pb-6">
+						You can resize this window and attach it to your stream to monitor
+						the chat in real-time
 					</p>
 					<div className="flex rounded-md shadow-sm">
 						<span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-500">
@@ -41,6 +50,7 @@ export default function Form() {
 						</button>
 					</div>
 				</form>
+				<ThemeToggle></ThemeToggle>
 			</div>
 		</div>
 	);

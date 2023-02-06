@@ -9,14 +9,14 @@ export default function Chat({ userName }) {
 
 	if (chatConnected) {
 		return (
-			<div className="w-full h-screen flex flex-col bg-[#f5f6fa]">
+			<div className="w-full h-screen flex flex-col bg-[#f5f6fa] dark:bg-gray-800">
 				<ChatHeader userName={userName} classified={classified}></ChatHeader>
 				<ChatMessages messages={messages}></ChatMessages>
 			</div>
 		);
 	} else {
 		return (
-			<div className="w-full h-screen flex flex-col bg-[#f5f6fa]">
+			<div className="w-full h-screen flex flex-col bg-[#f5f6fa] dark:bg-gray-800">
 				<ChatHeader userName={userName}></ChatHeader>
 				<Loading></Loading>
 			</div>
