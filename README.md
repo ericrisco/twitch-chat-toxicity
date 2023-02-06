@@ -57,8 +57,14 @@ e4a74d77-11f0-42ef-af96-2781f879bc1d-ft
 ```
 
 - The application uses Cohere.ai and its classification algorithm to classify messages as toxic or benign.
-- To achieve accurate results from the algorithm, the dataset found in the ./dataset folder with 159,572 classified messages was used. This dataset was taken from the following study:
-- With that huge amount of messages, a Cohere.ai model was trained and these are the results:
+- To achieve accurate results from the algorithm, a dataset from a [Kaggle Challenge](https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/overview) has been used. The dataset has 159,572 classified messages as toxic or bening.
+<p align="center">
+<a href="https://firebasestorage.googleapis.com/v0/b/kingsleague-22e86.appspot.com/o/twitch-chat-toxicity%2Ftrain.csv?alt=media&token=13e7902f-4579-4aff-910b-42def7068560" target="blank">Kaggle train dataset</a>
+·
+<a href="https://firebasestorage.googleapis.com/v0/b/kingsleague-22e86.appspot.com/o/twitch-chat-toxicity%2Ftrain_clean.csv?alt=media&token=8bdbc4f1-13e0-4cfa-a8a3-07ebfb814028">Cleaned dataset (prepared for Co:here.ai)</a>
+</p>
+
+### Cohere.ai model after training
 
 ![trained_model](https://user-images.githubusercontent.com/20164590/216793201-25dc23d7-02f1-4747-a1b1-ab63292b2164.png)
 
