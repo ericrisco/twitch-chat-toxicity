@@ -37,12 +37,10 @@ export default function ChatMessage({ message }) {
 	);
 
 	return (
-		<li className="clearfix2 transition duration-500 hover:scale-110">
-			<div className={`text-[14px] py-1 px-2 rounded hover:bg-gray-500/30 leading-6 ${classColor}`}>
-				<div className="inline-flex items-baseline">{ToxicIcon}</div>
-				<div className="pl-2 inline-flex items-baseline">{Username}</div>
-				<span className="ml-3 break-words">{message.message}</span>
-			</div>
-		</li>
+		<div className={`text-[14px] py-1 px-2 rounded hover:bg-gray-500/30 leading-6 ${classColor}`}>
+			<div className="inline-flex items-baseline">{ToxicIcon}</div>
+			<div className="pl-2 inline-flex items-baseline">{Username}</div>
+			<span className="ml-3 break-words">{message.message}</span>
+		</div>
 	);
 }

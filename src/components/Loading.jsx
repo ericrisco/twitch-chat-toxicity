@@ -1,4 +1,4 @@
-import { randomColors } from '@services/config.js';
+import { randomColors } from '@hooks/config.js';
 
 export default function Loading() {
 	const skeletons = randomColors.map((color) => {

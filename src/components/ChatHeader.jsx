@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getUserInfo } from '@services/userInfo';
+import { getUserInfo } from '@hooks/userInfo';
 
 export default function ChatHeader({ userName, classified }) {
 	const [data, setData] = useState({
@@ -95,7 +95,7 @@ export default function ChatHeader({ userName, classified }) {
 	);
 
 	const HeaderOk = (
-		<div className="flex items-center border-b border-gray-300 pl-3 py-3">
+		<div className="h-[8vh] flex items-center border-b border-gray-300 pl-3 py-3">
 			{Avatar}
 			<span className="grow">
 				{UserInfo}
@@ -108,7 +108,7 @@ export default function ChatHeader({ userName, classified }) {
 	const HeaderError = (
 		<div
 			id="alert-border-2"
-			className="flex p-2 mb-2 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
+			className="h-[8vh] flex p-2 mb-2 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
 			role="alert">
 			<svg
 				className="flex-shrink-0 w-5 h-5"

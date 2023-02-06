@@ -3,7 +3,7 @@ export const apiURL = isDevelopment
 	? 'http://localhost:3000/api/'
 	: 'https://twitch-chat-toxicity.vercel.app/api/';
 
-export const windowSize = 100;
+export const windowSize = 2000;
 
 export const randomColors = [
 	'#ED4C67',
