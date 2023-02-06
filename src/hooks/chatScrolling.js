@@ -15,7 +15,7 @@ export default function chatScrolling(messages) {
 			const clientHeight = chatBoxRef.current.clientHeight;
 
 			const currentScroll = Math.ceil(scrollTop + clientHeight);
-			const isChatBoxScrolled = currentScroll !== scrollHeight;
+			const isChatBoxScrolled = scrollHeight - currentScroll > 10;
 
 			setFollowScroll(!isChatBoxScrolled);
 		}
