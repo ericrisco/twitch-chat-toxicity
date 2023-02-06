@@ -32,7 +32,7 @@ export default function ChatHeader({ userName, classified }) {
 	);
 
 	const UserInfo = (
-		<span className="block ml-2 font-bold text-base text-gray-600">
+		<span className="block ml-2 font-bold text-base text-gray-600 dark:text-gray-300">
 			{userName}
 		</span>
 	);
@@ -48,45 +48,29 @@ export default function ChatHeader({ userName, classified }) {
 
 	const Classification = (
 		<div className="flex pr-3">
-			<div className="flex items-center w-full">
+			<div className="flex items-center w-full text-slate-900">
 				<div className="flex-col w-14 text-center font-semibold mr-1 rounded-full border bg-red-500 transition duration-500 hover:scale-125">
-					<div className="">
-						💀
-					</div>
-					<div className="text-sm text-slate-900">
-						{classified.hight}
-					</div>
+					<div className="">💀</div>
+					<div className="text-sm">{classified.hight}</div>
 				</div>
 				<div className="flex-col w-14 text-center font-semibold mr-1 rounded-full border bg-orange-500 transition duration-500 hover:scale-125">
-					<div className="">
-						☣️
-					</div>
-					<div className="text-sm text-slate-900">
-						{classified.medium}
-					</div>
+					<div className="">☣️</div>
+					<div className="text-sm">{classified.medium}</div>
 				</div>
 				<div className="flex-col w-14 text-center font-semibold mr-1 rounded-full border bg-yellow-500 transition duration-500 hover:scale-125">
-					<div className="">
-						🤔
-					</div>
-					<div className="text-sm text-slate-900">
-						{classified.low}
-					</div>
+					<div className="">🤔</div>
+					<div className="text-sm">{classified.low}</div>
 				</div>
 				<div className="flex-col w-14 text-center font-semibold mr-1 rounded-full border bg-green-500 transition duration-500 hover:scale-125">
-					<div className="">
-						✔️
-					</div>
-					<div className="text-sm text-slate-900">
-						{classified.benign}
-					</div>
+					<div className="">✔️</div>
+					<div className="text-sm">{classified.benign}</div>
 				</div>
 			</div>
 		</div>
 	);
 
 	const HeaderLoading = (
-		<div className="flex items-center border-b border-gray-300 pl-3 py-3">
+		<div className="flex items-center border-b pl-3 py-3 dark:border-gray-900 dark:bg-gray-800">
 			<div className="flex items-center w-full space-x-2">
 				<div className="h-10 w-10 bg-gray-200 rounded-full dark:bg-gray-700"></div>
 				<div className="h-6 w-[300px] bg-gray-300 rounded-full "></div>
@@ -95,7 +79,7 @@ export default function ChatHeader({ userName, classified }) {
 	);
 
 	const HeaderOk = (
-		<div className="h-[8vh] flex items-center border-b border-gray-300 pl-3 py-3">
+		<div className="h-[8vh] flex items-center border-b pl-3 py-3 border-gray-300 dark:border-gray-900 dark:bg-gray-800">
 			{Avatar}
 			<span className="grow">
 				{UserInfo}
