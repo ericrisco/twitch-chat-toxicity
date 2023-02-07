@@ -6,6 +6,7 @@ import { classifyMessage } from './classifyMessage.js';
 export default function chatMessages({ userName }) {
 	let [messages, setMessages] = useState([]);
 	const [chatConnected, setChatConnected] = useState(false);
+	const [cohereDisconnected, setCohereDisconnected] = useState(false);
 	let [classified, setClassified] = useState({
 		benign: 0,
 		hight: 0,
@@ -49,6 +50,7 @@ export default function chatMessages({ userName }) {
 						messages = [...messages.slice(-windowSize), newMessage];
 					}
 					setMessages(messages);
+					setCohereDisconnected(classification.error !== undefined);
 
 					classified = {
 						benign: classification.isToxic
@@ -78,6 +80,7 @@ export default function chatMessages({ userName }) {
 	return {
 		messages,
 		chatConnected,
-		classified
+		classified,
+		cohereDisconnected
 	};
 }
