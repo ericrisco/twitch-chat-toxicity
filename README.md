@@ -1,6 +1,6 @@
 # ☣️ Twitch Toxic Tracker
 
-![captura1](https://user-images.githubusercontent.com/20164590/216798121-bc84dfc7-7e53-4f9d-9318-1e4db4dabd4e.png)
+![captura1](https://user-images.githubusercontent.com/20164590/217115939-241debc7-f8c8-4670-ab9d-c5329722424b.png)
 
 The **Twitch Toxic Tracker** is an innovative application that provides real-time monitoring and analysis of Twitch chat messages. It is designed to help streamers and moderators maintain a positive and welcoming environment for their viewers by detecting and classifying toxic messages.
 
