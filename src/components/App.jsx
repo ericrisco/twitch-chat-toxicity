@@ -4,7 +4,7 @@ import Form from '@components/Form.jsx';
 export default function App() {
 	const urlSearchParams = new URLSearchParams(window.location.search);
 	const params = Object.fromEntries(urlSearchParams.entries());
-	const userName = params.username || 'midudev';
+	const userName = params.username || 'sodapoppin';
 
 	return (
 		<div className="grid grid-cols-12">
