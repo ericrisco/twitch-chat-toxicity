@@ -20,7 +20,7 @@ export default function ChatPausedAlert({ onClick, className }) {
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 			onClick={onClick}
-			className={`w-64 inline-flex justify-center px-4 py-2 rounded-lg text-white bg-black/80 cursor-pointer ${className}`}>
+			className={`w-64 inline-flex justify-center px-4 py-2 rounded-lg text-white bg-black/80 dark:text-black dark:bg-white/80 cursor-pointer ${className}`}>
 			{label}
 		</div>
 	);
