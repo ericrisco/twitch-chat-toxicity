@@ -3,6 +3,7 @@ import { cohereClassifyEndpoint, cohereApiKey } from './config';
 
 export async function post({ request }) {
 	try {
+		console.log(request);
 		const body = await request.json();
 		const message = body.message;
 
