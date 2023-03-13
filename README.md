@@ -20,10 +20,6 @@ Overall, the **Twitch Toxic Tracker** is an essential tool for streamers and mod
 <a href="https://github.com/ericrisco/twitch-chat-toxicity/issues/new/choose">Request Feature</a>
 </p>
 
-## 🔥 Motivation
-
-This project aims to participate in [@midudev](https://www.github.com/midudev) hackathon: [midudev-cohere-2023](https://github.com/topics/midudev-cohere-2023), in collaboration with [co:here AI](https://cohere.ai/).
-
 ## 💡 Idea
 
 The main idea is for the streamer to enter their username, resize the window, and place it next to OBS while they are streaming in order to visually detect toxic individuals in their chat in a much more efficient manner.
