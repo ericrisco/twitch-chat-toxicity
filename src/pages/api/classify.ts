@@ -7,7 +7,7 @@ export async function post({ request }) {
 		const message = body.message;
 
 		const postBody = {
-			model: '250b01f4-de78-4b26-9bd5-b23190373ca1-ft',
+			model: 'cd53e022-6e0a-44a6-b3c2-042630ab37b7-ft',
 			inputs: [message]
 		};
 
